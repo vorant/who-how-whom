@@ -1,7 +1,7 @@
-<div class="event-item">
-  <div class="event-item__row" *ngIf="!editModes">
-    <a class="event-item__item-label" href="...">{{ event.name }}</a>
-    <div class="event-item__item-icons">
+<div class="simple-list-item">
+  <div class="simple-list-item__row" *ngIf="!editModes">
+    <a class="simple-list-item__item-label" href="...">{{ event.name }}</a>
+    <div class="simple-list-item__item-icons">
       <button mat-icon-button aria-label="Edit" (click)="edit()">
         <mat-icon>edit</mat-icon>
       </button>
@@ -11,11 +11,11 @@
     </div>
   </div>
 
-  <div class="event-item__row" *ngIf="editModes">
-    <mat-form-field class="event-item__form-field">
+  <div class="simple-list-item__row" *ngIf="editModes">
+    <mat-form-field class="simple-list-item__form-field">
       <input matInput [(ngModel)]="tmpName">
     </mat-form-field>
-    <div class="event-item__item-icons">
+    <div class="simple-list-item__item-icons">
       <button mat-icon-button aria-label="Save" (click)="save()">
         <mat-icon>save</mat-icon>
       </button>

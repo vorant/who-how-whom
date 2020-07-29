@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {EventModel} from "../../models/event.model";
 
 @Component({
-  selector: 'app-events-list',
-  templateUrl: './events-list.component.html',
-  styleUrls: ['./events-list.component.scss']
+  selector: 'app-simple-list',
+  templateUrl: './simple-list.component.html',
+  styleUrls: ['./simple-list.component.scss']
 })
-export class EventsListComponent implements OnInit {
+export class SimpleListComponent implements OnInit {
   events: EventModel[] = [
     {
       name: 'Photos'

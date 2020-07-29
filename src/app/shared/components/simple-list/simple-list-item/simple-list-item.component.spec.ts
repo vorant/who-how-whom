@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventItemComponent } from './event-item.component';
+import { SimpleListItemComponent } from './event-item.component';
 
 describe('EventItemComponent', () => {
-  let component: EventItemComponent;
-  let fixture: ComponentFixture<EventItemComponent>;
+  let component: SimpleListItemComponent;
+  let fixture: ComponentFixture<SimpleListItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventItemComponent ]
+      declarations: [ SimpleListItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EventItemComponent);
+    fixture = TestBed.createComponent(SimpleListItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

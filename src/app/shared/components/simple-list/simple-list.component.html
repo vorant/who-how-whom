@@ -1,8 +1,7 @@
-<div class="events-list">
+<div class="simple-list">
   <mat-list>
     <mat-list-item *ngFor="let event of events; let i = index">
-      <app-event-item mat-line [event]="event"></app-event-item>
-
+      <app-simple-list-item mat-line [event]="event"></app-simple-list-item>
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>

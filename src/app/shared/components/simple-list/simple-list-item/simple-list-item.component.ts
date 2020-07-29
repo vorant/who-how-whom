@@ -2,11 +2,11 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {EventModel} from "../../../models/event.model";
 
 @Component({
-  selector: 'app-event-item',
-  templateUrl: './event-item.component.html',
-  styleUrls: ['./event-item.component.scss']
+  selector: 'app-simple-list-item',
+  templateUrl: './simple-list-item.component.html',
+  styleUrls: ['./simple-list-item.component.scss']
 })
-export class EventItemComponent implements OnInit {
+export class SimpleListItemComponent implements OnInit {
   @Input() event: EventModel;
   @Output() saveEvent = new EventEmitter<EventModel>();
   @Output() delEvent = new EventEmitter<EventModel>();

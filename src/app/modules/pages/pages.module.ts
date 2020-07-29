@@ -11,6 +11,7 @@ import {ModulesComponentsModule} from "../components/modules-components.module";
 import { SpendingListComponent } from './event/spending-list/spending-list.component';
 import { SpendingFormComponent } from './spending/spending-form/spending-form.component';
 import { ResultsListComponent } from './event/results-list/results-list.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ResultsListComponent } from './event/results-list/results-list.componen
   imports: [
     CommonModule,
     SharedModule,
+    FormsModule,
     PagesRoutingModule,
     RouterModule,
     ModulesComponentsModule

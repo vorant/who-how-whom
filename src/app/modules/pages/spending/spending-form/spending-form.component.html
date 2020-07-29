@@ -2,36 +2,33 @@
 
       <mat-form-field class="spending-form__form-item">
         <mat-label>Name</mat-label>
-        <input matInput placeholder="Name" value="Sushi">
+        <input matInput placeholder="Name" [(ngModel)]="name">
       </mat-form-field>
 
       <mat-form-field class="spending-form__form-item">
         <mat-label>Cost</mat-label>
-        <input matInput placeholder="cost" value="5" type="number">
+        <input matInput placeholder="cost" [(ngModel)]="cost" type="number">
       </mat-form-field>
 
-      <mat-form-field  class="spending-form__form-item">
+      <mat-form-field class="spending-form__form-item" >
         <mat-label>Who paid</mat-label>
-        <mat-select>
-          <!--<mat-option *ngFor="let food of foods" [value]="food.value">
-            {{food.viewValue}}
-          </mat-option>-->
-          <mat-option> 1</mat-option>
-          <mat-option> 2</mat-option>
-          <mat-option> 3</mat-option>
+        <mat-select [(value)]="who">
+          <mat-option *ngFor="let user of users" [value]="user">
+            {{user.name}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 
 
   <div>
     <h4 class="spending-form__heading">With who:</h4>
-    <mat-selection-list #shoes>
-      <mat-list-option *ngFor="let shoe of typesOfShoes">
-        {{shoe}}
+    <mat-selection-list #usersList>
+      <mat-list-option *ngFor="let user of users">
+        {{user.name}}
       </mat-list-option>
     </mat-selection-list>
 
-<!--    Options selected: {{shoes.selectedOptions.selected.length}}-->
+<!--    Options selected: {{usersList.selectedOptions.selected.length}}-->
 
   </div>
   <br>

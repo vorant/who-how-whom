@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EventModel} from "../../models/event.model";
 import {SimpleListItemModel} from "../../models/simple-list-item.model";
 
@@ -9,7 +9,9 @@ import {SimpleListItemModel} from "../../models/simple-list-item.model";
 })
 export class SimpleListComponent implements OnInit {
   @Input() items: SimpleListItemModel[];
-  @Input() url?: { path: string, field: string }
+  @Input() url?: { path: string, field: string };
+  @Output() saveEvent = new EventEmitter<SimpleListItemModel>();
+  @Output() delEvent = new EventEmitter<SimpleListItemModel>();
 
   constructor() {
   }

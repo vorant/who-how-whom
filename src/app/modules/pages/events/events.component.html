@@ -11,7 +11,10 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <app-simple-list [items]="events" [url]="{ path: '/event', field: 'id' }"></app-simple-list>
+  <app-simple-list [items]="events" [url]="{ path: '/event', field: 'id' }"
+                   (saveEvent)="saveEvent($event)"
+                   (delEvent)="delEvent($event)"
+  ></app-simple-list>
 
-  <app-add-item></app-add-item>
+  <app-add-item (addString)="addString($event)"></app-add-item>
 </div>

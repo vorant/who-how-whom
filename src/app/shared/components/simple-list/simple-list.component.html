@@ -1,7 +1,13 @@
 <div class="simple-list">
   <mat-list>
     <mat-list-item *ngFor="let item of items; let i = index">
-      <app-simple-list-item mat-line [item]="item" [url]="url"></app-simple-list-item>
+      <app-simple-list-item
+        mat-line
+        [item]="item"
+        [url]="url"
+        (saveEvent)="saveEvent.emit($event)"
+        (delEvent)="delEvent.emit($event)">
+      </app-simple-list-item>
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>

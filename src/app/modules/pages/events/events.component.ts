@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
 import {EventModel} from "../../../shared/models/event.model";
 import {CoreService} from "../../../core/services/core.service";
 
@@ -12,10 +11,9 @@ export class EventsComponent implements OnInit {
   events: EventModel[] = [];
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private coreService: CoreService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.coreService.getEvents().subscribe((events: EventModel[]) => {

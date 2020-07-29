@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {EventModel} from "../../shared/models/event.model";
+import {UserModel} from "../../shared/models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,14 @@ export class LocalStorageService {
   private storageSpendingName = 'appSpending';
 
   constructor() { }
+
+  getUsers(): Observable<UserModel[]> {
+    return this.getData<UserModel>(this.storageUsersName);
+  }
+
+  saveUsers(users: UserModel[]): void {
+    this.saveData(users, this.storageUsersName)
+  }
 
   getEvents(): Observable<EventModel[]> {
     return this.getData<EventModel>(this.storageEventsName);

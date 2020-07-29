@@ -10,8 +10,8 @@ import {SimpleListItemModel} from "../../models/simple-list-item.model";
 export class SimpleListComponent implements OnInit {
   @Input() items: SimpleListItemModel[];
   @Input() url?: { path: string, field: string };
-  @Output() saveEvent = new EventEmitter<SimpleListItemModel>();
-  @Output() delEvent = new EventEmitter<SimpleListItemModel>();
+  @Output() saveEvent = new EventEmitter<any>();
+  @Output() delEvent = new EventEmitter<any>();
 
   constructor() {
   }

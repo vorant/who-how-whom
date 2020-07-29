@@ -11,13 +11,16 @@ export class SpendingFormComponent implements OnInit {
   @Output() create = new EventEmitter<SpendingModel>();
   @Output() cancel = new EventEmitter<void>();
   users: UserModel[] = [{
-    name: 'Carl'
+    name: 'Carl',
+    id: 1
   },
     {
-      name: 'Sergio'
+      name: 'Sergio',
+      id: 2
     },
     {
-      name: 'Amirhani'
+      name: 'Amirhani',
+      id: 3
     }];
 
   spending: SpendingModel;

@@ -18,4 +18,12 @@ export class CoreService {
   saveEvents(events: EventModel[]): void {
     this.localStorageService.saveEvents(events);
   }
+
+  getUsers(): Observable<EventModel[]> {
+    return this.localStorageService.getUsers();
+  }
+
+  saveUsers(events: EventModel[]): void {
+    this.localStorageService.saveUsers(events);
+  }
 }

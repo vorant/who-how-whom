@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class EventComponent implements OnInit {
 
   spending: SpendingModel[] = [
-    {
+/*    {
       name: 'Vodka',
       value: 1000,
       who: {
@@ -28,7 +28,7 @@ export class EventComponent implements OnInit {
       },
       withWho: [{name: 'Semen'}, {name: 'Bob'}, {name: 'Sam'}],
       date: new Date()
-    }
+    }*/
   ];
 
   constructor(

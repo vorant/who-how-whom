@@ -8,7 +8,10 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <app-simple-list [items]="users"></app-simple-list>
+  <app-simple-list [items]="users"
+                   (saveEvent)="saveUser($event)"
+                   (delEvent)="delUser($event)"
+  ></app-simple-list>
 
-  <app-add-item></app-add-item>
+  <app-add-item (addString)="addUser($event)"></app-add-item>
 </div>

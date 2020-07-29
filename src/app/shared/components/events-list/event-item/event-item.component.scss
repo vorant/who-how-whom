@@ -1,0 +1,11 @@
+.event-item {
+  &__row {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__form-field {
+    width: 100%;
+  }
+}

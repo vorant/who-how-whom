@@ -288,3 +288,16 @@ svg#clouds {
   }
 }
 */
+
+.app {
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    width: 100%;
+    max-width: 1200px;
+    //border: 1px solid red;
+  }
+}
+
+

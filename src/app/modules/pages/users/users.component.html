@@ -1,13 +1,12 @@
-<div class="events">
+<div class="users">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
+      <button mat-icon-button class="header__icon" aria-label="Back" (click)="backButton()">
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
       <app-spreader></app-spreader>
-      <span>Events</span>
+      <span>Constant Users</span>
       <app-spreader></app-spreader>
-
-      <a mat-icon-button [routerLink]="['/users']" class="header__icon" aria-label="Users">
-        <mat-icon>supervisor_account</mat-icon>
-      </a>
     </mat-toolbar-row>
   </mat-toolbar>
 

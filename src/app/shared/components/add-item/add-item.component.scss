@@ -1,0 +1,10 @@
+.add-item {
+  display: flex;
+  //align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+
+  &__form-field {
+    width: calc(100% - 80px);
+  }
+}

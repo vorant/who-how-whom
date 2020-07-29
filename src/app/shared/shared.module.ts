@@ -11,14 +11,19 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {SimpleListItemComponent} from './components/simple-list/simple-list-item/simple-list-item.component';
 import {RouterModule} from "@angular/router";
-import {SpreaderComponent} from './components/spreader/spreader.component';
+import {SpreaderComponent} from '../modules/components/spreader/spreader.component';
+import {MatChipsModule} from "@angular/material/chips";
+import {MatSelectModule} from "@angular/material/select";
 
 const MaterialModules = [
   MatToolbarModule,
   MatIconModule,
   MatListModule,
   MatButtonModule,
-  MatInputModule
+  MatInputModule,
+  MatChipsModule,
+  MatSelectModule
+
 ]
 
 @NgModule({

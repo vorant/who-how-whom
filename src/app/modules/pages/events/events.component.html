@@ -11,7 +11,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <app-simple-list></app-simple-list>
+  <app-simple-list [items]="events" [url]="{ path: '/event', field: 'id' }"></app-simple-list>
 
   <app-add-item></app-add-item>
 </div>

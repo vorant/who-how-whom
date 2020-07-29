@@ -1,1 +1,12 @@
-<p>spending works!</p>
+<div class="spending">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <app-back-button></app-back-button>
+      <app-spreader></app-spreader>
+      <span>Add spending</span>
+      <app-spreader></app-spreader>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <app-spending-form (create)="create($event)" (cancel)="cancel()"></app-spending-form>
+</div>

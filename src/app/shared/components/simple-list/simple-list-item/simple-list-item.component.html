@@ -1,6 +1,9 @@
 <div class="simple-list-item">
   <div class="simple-list-item__row" *ngIf="!editModes">
-    <a class="simple-list-item__item-label" href="...">{{ event.name }}</a>
+    <span class="simple-list-item__item-label" *ngIf="!url">{{ item.name }}</span>
+
+    <a class="simple-list-item__item-label" *ngIf="url" [routerLink]="[url.path + '/' + item[url.field]]">{{ item.name }}</a>
+
     <div class="simple-list-item__item-icons">
       <button mat-icon-button aria-label="Edit" (click)="edit()">
         <mat-icon>edit</mat-icon>

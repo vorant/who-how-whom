@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from "@angular/common";
+import {SpendingModel} from "../../../shared/models/spending.model";
 
 @Component({
   selector: 'app-spending',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpendingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
   }
 
+  cancel() {
+    this.location.back();
+  }
+
+  create(spending: SpendingModel) {
+
+  }
 }

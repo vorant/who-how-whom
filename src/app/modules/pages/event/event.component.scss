@@ -1,0 +1,12 @@
+.event {
+  &__new-btn {
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__heading {
+    padding: 16px;
+    margin: 0;
+  }
+}

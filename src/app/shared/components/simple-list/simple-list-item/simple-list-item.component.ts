@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {EventModel} from "../../../models/event.model";
+import {SimpleListItemModel} from "../../../models/simple-list-item.model";
 
 @Component({
   selector: 'app-simple-list-item',
@@ -7,9 +7,10 @@ import {EventModel} from "../../../models/event.model";
   styleUrls: ['./simple-list-item.component.scss']
 })
 export class SimpleListItemComponent implements OnInit {
-  @Input() event: EventModel;
-  @Output() saveEvent = new EventEmitter<EventModel>();
-  @Output() delEvent = new EventEmitter<EventModel>();
+  @Input() item: SimpleListItemModel;
+  @Input() url?: { path: string, field: string };
+  @Output() saveEvent = new EventEmitter<SimpleListItemModel>();
+  @Output() delEvent = new EventEmitter<SimpleListItemModel>();
 
   tmpName: string = ''
   editModes = false;
@@ -22,16 +23,16 @@ export class SimpleListItemComponent implements OnInit {
 
   edit() {
     this.editModes = !this.editModes;
-    this.tmpName = this.event.name;
+    this.tmpName = this.item.name;
   }
 
   del() {
-    this.delEvent.emit(this.event);
+    this.delEvent.emit(this.item);
   }
 
   save() {
-    this.event.name = this.tmpName;
-    this.saveEvent.emit(this.event);
+    this.item.name = this.tmpName;
+    this.saveEvent.emit(this.item);
     this.editModes = !this.editModes;
   }
 

@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {EventModel} from "../../models/event.model";
+import {SimpleListItemModel} from "../../models/simple-list-item.model";
 
 @Component({
   selector: 'app-simple-list',
@@ -7,17 +8,8 @@ import {EventModel} from "../../models/event.model";
   styleUrls: ['./simple-list.component.scss']
 })
 export class SimpleListComponent implements OnInit {
-  events: EventModel[] = [
-    {
-      name: 'Photos'
-    },
-    {
-      name: 'Recipes'
-    },
-    {
-      name: 'Work'
-    }
-  ];
+  @Input() items: SimpleListItemModel[];
+  @Input() url?: { path: string, field: string }
 
   constructor() {
   }

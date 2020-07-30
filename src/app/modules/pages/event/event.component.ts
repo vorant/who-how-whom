@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { SpendingModel } from '../../../shared/models/spending.model';
-import { UserModel } from '../../../shared/models/user.model';
+import { SpendingModel } from '@shared/models/spending.model';
+import { UserModel } from '@shared/models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CoreService } from '../../../core/services/core.service';
+import { CoreService } from '@core/services/core.service';
 import { combineLatest } from 'rxjs';
 import { UpdatedSpendingModel } from './updated-spending.model';
-import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent } from '@shared/components/confirm-dialog/confirm-dialog.component';
 import { filter } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
-import { ResultsService } from '../../../core/services/results.service';
-import { ResultsModel } from '../../../shared/models/results.model';
+import { ResultsService } from '@core/services/results.service';
+import { ResultsModel } from '@shared/models/results.model';
 
 @Component({
   selector: 'app-event',

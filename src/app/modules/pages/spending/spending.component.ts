@@ -1,22 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {Location} from "@angular/common";
-import {SpendingModel} from "../../../shared/models/spending.model";
-import {CoreService} from "../../../core/services/core.service";
-import {ActivatedRoute} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { SpendingModel } from '@shared/models/spending.model';
+import { CoreService } from '@core/services/core.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-spending',
   templateUrl: './spending.component.html',
-  styleUrls: ['./spending.component.scss']
+  styleUrls: ['./spending.component.scss'],
 })
 export class SpendingComponent implements OnInit {
-
   constructor(
     private location: Location,
     private coreService: CoreService,
     private route: ActivatedRoute
-  ) {
-  }
+  ) {}
 
   spending: SpendingModel[] = [];
   spendingForm: SpendingModel;
@@ -27,7 +25,9 @@ export class SpendingComponent implements OnInit {
       const spendingId = this.route.snapshot.paramMap.get('spendingId');
 
       if (spendingId) {
-        this.spendingForm = this.spending.find(spending => spending.id.toString() === spendingId.toString());
+        this.spendingForm = this.spending.find(
+          (spending) => spending.id.toString() === spendingId.toString()
+        );
       }
     });
   }
@@ -38,9 +38,9 @@ export class SpendingComponent implements OnInit {
 
   create(spending: SpendingModel) {
     if (spending.eventId) {
-      this.spending = this.spending.map(el => {
+      this.spending = this.spending.map((el) => {
         return el.id === spending.id ? spending : el;
-      })
+      });
     } else {
       spending.eventId = this.route.snapshot.paramMap.get('eventId');
       this.spending.push(spending);

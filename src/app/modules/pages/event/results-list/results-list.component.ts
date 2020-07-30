@@ -1,17 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ResultsModel} from "../../../../shared/models/results.model";
+import { Component, Input, OnInit } from '@angular/core';
+import { ResultsModel } from '@shared/models/results.model';
 
 @Component({
   selector: 'app-results-list',
   templateUrl: './results-list.component.html',
-  styleUrls: ['./results-list.component.scss']
+  styleUrls: ['./results-list.component.scss'],
 })
 export class ResultsListComponent implements OnInit {
-  @Input() results: ResultsModel[] ;
+  @Input() results: ResultsModel[];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,21 +1,20 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.scss']
+  styleUrls: ['./add-item.component.scss'],
 })
 export class AddItemComponent implements OnInit {
-  @Output() addString = new EventEmitter<string>()
+  @Output() addString = new EventEmitter<string>();
   name = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   add() {
     this.addString.emit(this.name);
-    this.name = ''
+    this.name = '';
   }
 }

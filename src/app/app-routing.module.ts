@@ -4,14 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule)
-  }
+    loadChildren: () =>
+      import('./modules/pages/pages.module').then((m) => m.PagesModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,
-    { enableTracing: true } // <-- debugging purposes only
-  )],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

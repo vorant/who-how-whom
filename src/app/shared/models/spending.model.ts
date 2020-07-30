@@ -1,5 +1,3 @@
-import {UserModel} from "./user.model";
-
 export interface SpendingModel {
   value: number;
   userId: string; // who: UserModel;

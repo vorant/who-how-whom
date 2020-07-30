@@ -8,5 +8,5 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <app-spending-form (create)="create($event)" (cancel)="cancel()"></app-spending-form>
+  <app-spending-form (create)="create($event)" (cancel)="cancel()" [form]="spendingForm"></app-spending-form>
 </div>

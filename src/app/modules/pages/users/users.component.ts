@@ -22,13 +22,13 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.coreService.getUsers().subscribe((users: UserModel[]) => {
       this.users = users;
-    })
+    });
   }
 
   addUser(name: string) {
     this.users.push({
       name,
-      id: new Date().getTime()
+      id: new Date().getTime().toString()
     });
     this.coreService.saveUsers(this.users);
   }

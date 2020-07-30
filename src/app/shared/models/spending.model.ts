@@ -1,9 +1,11 @@
 import {UserModel} from "./user.model";
 
-export class SpendingModel {
+export interface SpendingModel {
   value: number;
-  who: UserModel;
-  withWho: UserModel[];
+  userId: string; // who: UserModel;
+  usersId: string[]; // withWho: UserModel[];
   date: Date;
   name: string;
+  eventId: string;
+  id: string;
 }

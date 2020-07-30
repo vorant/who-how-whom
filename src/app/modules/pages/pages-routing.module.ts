@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'new-spending',
     component: SpendingComponent,
+  },
+  {
+    path: 'spending/:id',
+    component: SpendingComponent,
   }
 
 ];

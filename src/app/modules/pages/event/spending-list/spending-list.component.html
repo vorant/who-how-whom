@@ -6,7 +6,6 @@
         <p matLine><b>What:</b> {{item.name}}</p>
         <p matLine><b>Who:</b> {{item.who.name}} </p>
         <p matLine><b>How much:</b> {{item.value}} </p>
-        <!--        <p matLine><b>Date:</b> {{item.date | date}} </p>-->
         <div matLine>
           <b>With who:</b>
           <mat-chip-list aria-label="Fish selection">
@@ -16,10 +15,10 @@
       </div>
 
       <div class="spending-list__item-right">
-        <button mat-icon-button aria-label="Edit" (click)="edit()">
+        <button mat-icon-button aria-label="Edit" (click)="edit.emit(item)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button aria-label="Delete" (click)="del()">
+        <button mat-icon-button aria-label="Delete" (click)="del.emit(item)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

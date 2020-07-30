@@ -1,6 +1,7 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {SpendingModel} from "../../../../shared/models/spending.model";
 import {UserModel} from "../../../../shared/models/user.model";
+import {CoreService} from "../../../../core/services/core.service";
 
 @Component({
   selector: 'app-spending-form',
@@ -8,34 +9,48 @@ import {UserModel} from "../../../../shared/models/user.model";
   styleUrls: ['./spending-form.component.scss']
 })
 export class SpendingFormComponent implements OnInit {
+  @Input() form?: SpendingModel;
   @Output() create = new EventEmitter<SpendingModel>();
   @Output() cancel = new EventEmitter<void>();
-  users: UserModel[] = [{
-    name: 'Carl',
-    id: 1
-  },
-    {
-      name: 'Sergio',
-      id: 2
-    },
-    {
-      name: 'Amirhani',
-      id: 3
-    }];
 
   spending: SpendingModel;
+  users: UserModel[] = [];
 
-  who: UserModel;
   name: string;
   cost: number;
+  who: UserModel;
+  selectedUsers: UserModel[] = [];
 
-  constructor() {
+  constructor(
+    private coreService: CoreService
+  ) {
   }
 
   ngOnInit(): void {
+    this.coreService.getUsers().subscribe((users: UserModel[]) => {
+      this.users = users;
+
+      if (this.form) {
+        this.name = this.form.name;
+        this.cost = this.form.value;
+
+        this.who = this.users.find(user => user.id === this.form.userId);
+        this.selectedUsers = this.users.filter(user => this.form.usersId.includes(user.id));
+      }
+    });
   }
 
   add() {
+    this.spending = {
+      value: this.cost,
+      userId: this.who.id.toString(),
+      usersId: this.selectedUsers.map(user => user.id),
+      date: new Date(),
+      id: new Date().getTime().toString(),
+      name: this.name,
+      eventId: this.form && this.form.eventId || null
+    }
+
     this.create.emit(this.spending);
   }
 }

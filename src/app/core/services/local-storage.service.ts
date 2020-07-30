@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {EventModel} from "../../shared/models/event.model";
 import {UserModel} from "../../shared/models/user.model";
+import {SpendingModel} from "../../shared/models/spending.model";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,14 @@ export class LocalStorageService {
 
   saveEvents(events: EventModel[]): void {
     this.saveData(events, this.storageEventsName)
+  }
+
+  getSpending(): Observable<SpendingModel[]> {
+    return this.getData<SpendingModel>(this.storageSpendingName);
+  }
+
+  saveSpending(spending: SpendingModel[]): void {
+    this.saveData(spending, this.storageSpendingName)
   }
 
   private saveData<T>(data: T[], storageName: string) {

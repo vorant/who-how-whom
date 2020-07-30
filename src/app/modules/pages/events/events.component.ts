@@ -24,7 +24,7 @@ export class EventsComponent implements OnInit {
   addString(str: string) {
     this.events.push({
       name: str,
-      id: new Date().getTime()
+      id: new Date().getTime().toString()
     });
     this.coreService.saveEvents(this.events);
   }

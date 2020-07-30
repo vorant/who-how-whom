@@ -1,4 +1,4 @@
-export class EventModel {
+export interface EventModel {
   name: string;
-  id: number;
+  id: string;
 }

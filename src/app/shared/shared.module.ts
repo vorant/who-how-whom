@@ -14,6 +14,8 @@ import {RouterModule} from "@angular/router";
 import {SpreaderComponent} from '../modules/components/spreader/spreader.component';
 import {MatChipsModule} from "@angular/material/chips";
 import {MatSelectModule} from "@angular/material/select";
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 const MaterialModules = [
   MatToolbarModule,
@@ -22,7 +24,8 @@ const MaterialModules = [
   MatButtonModule,
   MatInputModule,
   MatChipsModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDialogModule
 
 ]
 
@@ -32,7 +35,8 @@ const MaterialModules = [
     SimpleListComponent,
     AddItemComponent,
     SimpleListItemComponent,
-    SpreaderComponent
+    SpreaderComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -47,8 +51,12 @@ const MaterialModules = [
     AddItemComponent,
     AddItemComponent,
     SpreaderComponent,
+    ConfirmDialogComponent,
 
     ...MaterialModules
+  ],
+  entryComponents: [
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule {

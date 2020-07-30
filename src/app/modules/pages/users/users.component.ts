@@ -3,6 +3,9 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 import {EventModel} from "../../../shared/models/event.model";
 import {UserModel} from "../../../shared/models/user.model";
 import {CoreService} from "../../../core/services/core.service";
+import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-users',
@@ -14,7 +17,8 @@ export class UsersComponent implements OnInit {
   users: UserModel[] = [];
 
   constructor(
-    private coreService: CoreService
+    private coreService: CoreService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -42,7 +46,16 @@ export class UsersComponent implements OnInit {
   }
 
   delUser(user: UserModel) {
-    this.users = this.users.filter(intUser => intUser.id !== user.id);
-    this.coreService.saveUsers(this.users);
+    this.dialog
+      .open(ConfirmDialogComponent, {
+        width: '300px',
+        data: {name: user.name}
+      })
+      .afterClosed()
+      .pipe(filter(Boolean))
+      .subscribe(result => {
+        this.users = this.users.filter(intUser => intUser.id !== user.id);
+        this.coreService.saveUsers(this.users);
+      });
   }
 }

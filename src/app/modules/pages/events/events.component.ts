@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {EventModel} from "../../../shared/models/event.model";
 import {CoreService} from "../../../core/services/core.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-events',
@@ -11,7 +14,8 @@ export class EventsComponent implements OnInit {
   events: EventModel[] = [];
 
   constructor(
-    private coreService: CoreService
+    private coreService: CoreService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -38,7 +42,17 @@ export class EventsComponent implements OnInit {
   }
 
   delEvent(event: EventModel) {
-    this.events = this.events.filter(intEvent => intEvent.id !== event.id);
-    this.coreService.saveEvents(this.events);
+    this.dialog
+      .open(ConfirmDialogComponent, {
+        width: '300px',
+        data: {name: event.name}
+      })
+      .afterClosed()
+      .pipe(filter(Boolean))
+      .subscribe(result => {
+        this.coreService.removeSpending(event.id);
+        this.events = this.events.filter(intEvent => intEvent.id !== event.id);
+        this.coreService.saveEvents(this.events);
+      });
   }
 }

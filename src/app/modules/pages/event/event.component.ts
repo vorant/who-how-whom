@@ -5,6 +5,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CoreService} from "../../../core/services/core.service";
 import {combineLatest} from "rxjs";
 import {UpdatedSpendingModel} from "./updated-spending.model";
+import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
+import {filter} from "rxjs/operators";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-event',
@@ -20,7 +23,9 @@ export class EventComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private coreService: CoreService) {
+    private coreService: CoreService,
+    public dialog: MatDialog
+  ) {
   }
 
   ngOnInit(): void {
@@ -41,15 +46,23 @@ export class EventComponent implements OnInit {
   }
 
   addSpending() {
-    this.router.navigate(['spending'], { relativeTo: this.route });
+    this.router.navigate(['spending'], {relativeTo: this.route});
   }
 
   del(spending: UpdatedSpendingModel) {
+    this.dialog
+      .open(ConfirmDialogComponent, {
+        width: '300px',
+        data: {name: spending.name}
+      })
+      .afterClosed()
+      .pipe(filter(Boolean))
+      .subscribe(result => {
+        this.spending = this.spending.filter(el => el.id !== spending.id);
+        this.updatedSpending = this.updatedSpending.filter(el => el.id !== spending.id);
 
-    this.spending = this.spending.filter(el => el.id !== spending.id);
-    this.updatedSpending = this.updatedSpending.filter(el => el.id !== spending.id);
-
-    this.coreService.saveSpending(this.spending);
+        this.coreService.saveSpending(this.spending);
+      });
   }
 
   edit(spending: UpdatedSpendingModel) {

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Location} from "@angular/common";
 import {SpendingModel} from "../../../shared/models/spending.model";
 import {CoreService} from "../../../core/services/core.service";
-import {UserModel} from "../../../shared/models/user.model";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({

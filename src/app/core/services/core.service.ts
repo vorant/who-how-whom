@@ -3,6 +3,7 @@ import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {EventModel} from "../../shared/models/event.model";
 import {LocalStorageService} from "./local-storage.service";
 import {SpendingModel} from "../../shared/models/spending.model";
+import {filter, map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,11 @@ export class CoreService {
 
   saveUsers(events: EventModel[]): void {
     this.localStorageService.saveUsers(events);
+  }
+
+  removeSpending(eventId: string) {
+    this.localStorageService.getSpending().pipe(
+      map((spending) => spending.filter(el => el.eventId !== eventId))
+    ).subscribe(this.saveSpending.bind(this));
   }
 }

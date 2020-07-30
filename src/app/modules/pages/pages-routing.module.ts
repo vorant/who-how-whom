@@ -17,18 +17,17 @@ const routes: Routes = [
     component: UsersComponent,
   },
   {
-    path: 'event/:id',
+    path: 'event/:eventId',
     component: EventComponent,
   },
   {
-    path: 'new-spending',
-    component: SpendingComponent,
+    path: 'event/:eventId/spending',
+    component: SpendingComponent
   },
   {
-    path: 'spending/:id',
-    component: SpendingComponent,
+    path: 'event/:eventId/spending/:spendingId',
+    component: SpendingComponent
   }
-
 ];
 
 @NgModule({

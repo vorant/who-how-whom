@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SpendingModel} from "../../../shared/models/spending.model";
 import {UserModel} from "../../../shared/models/user.model";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CoreService} from "../../../core/services/core.service";
 import {combineLatest} from "rxjs";
 import {UpdatedSpendingModel} from "./updated-spending.model";
@@ -12,17 +12,20 @@ import {UpdatedSpendingModel} from "./updated-spending.model";
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnInit {
-
+  eventId: string;
   spending: SpendingModel[] = [];
   users: UserModel[] = [];
   updatedSpending: UpdatedSpendingModel[] = [];
 
   constructor(
     private router: Router,
-    private coreService: CoreService,) {
+    private route: ActivatedRoute,
+    private coreService: CoreService) {
   }
 
   ngOnInit(): void {
+    this.eventId = this.route.snapshot.paramMap.get('eventId');
+
     combineLatest([
       this.coreService.getSpending(),
       this.coreService.getUsers()
@@ -30,24 +33,26 @@ export class EventComponent implements OnInit {
       this.spending = spending;
       this.users = users;
       this.updatedSpending = this.spending.map((el) => <UpdatedSpendingModel>{
-          ...el,
-          who: this.users.find(user => user.id === el.userId),
-          withWho: this.users.filter(user => el.usersId.includes(user.id))
+        ...el,
+        who: this.users.find(user => user.id.toString() === el.userId.toString()),
+        withWho: this.users.filter(user => el.usersId.includes(user.id.toString()))
       });
     });
   }
 
   addSpending() {
-    this.router.navigate(['new-spending']);
+    this.router.navigate(['spending'], { relativeTo: this.route });
   }
 
   del(spending: UpdatedSpendingModel) {
+
     this.spending = this.spending.filter(el => el.id !== spending.id);
+    this.updatedSpending = this.updatedSpending.filter(el => el.id !== spending.id);
+
     this.coreService.saveSpending(this.spending);
   }
 
   edit(spending: UpdatedSpendingModel) {
-    this.router.navigate(['spending/' + spending.id]);
+    this.router.navigate(['event', this.eventId, 'spending', spending.id]);
   }
-
 }

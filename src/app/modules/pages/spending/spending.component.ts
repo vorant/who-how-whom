@@ -25,7 +25,7 @@ export class SpendingComponent implements OnInit {
   ngOnInit(): void {
     this.coreService.getSpending().subscribe((spending: SpendingModel[]) => {
       this.spending = spending;
-      const spendingId = this.route.snapshot.paramMap.get('id');
+      const spendingId = this.route.snapshot.paramMap.get('spendingId');
 
       if (spendingId) {
         this.spendingForm = this.spending.find(spending => spending.id.toString() === spendingId.toString());
@@ -38,9 +38,15 @@ export class SpendingComponent implements OnInit {
   }
 
   create(spending: SpendingModel) {
-    spending.eventId = this.route.snapshot.paramMap.get('id');
+    if (spending.eventId) {
+      this.spending = this.spending.map(el => {
+        return el.id === spending.id ? spending : el;
+      })
+    } else {
+      spending.eventId = this.route.snapshot.paramMap.get('eventId');
+      this.spending.push(spending);
+    }
 
-    this.spending.push(spending);
     this.coreService.saveSpending(this.spending);
     this.location.back();
   }

@@ -8,14 +8,14 @@ describe('ResultsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultsListComponent ]
-    })
-    .compileComponents();
+      declarations: [ResultsListComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ResultsListComponent);
     component = fixture.componentInstance;
+    component.results = [];
     fixture.detectChanges();
   });
 

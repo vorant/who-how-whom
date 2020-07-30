@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UpdatedSpendingModel } from '../../modules/pages/event/updated-spending.model';
-import { ResultsModel } from '../../shared/models/results.model';
+import { ResultsModel } from '@shared/models/results.model';
 
 @Injectable({
   providedIn: 'root',

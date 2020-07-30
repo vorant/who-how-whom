@@ -17,7 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
-const MaterialModules = [
+export const MaterialModules = [
   MatToolbarModule,
   MatIconModule,
   MatListModule,

@@ -8,14 +8,14 @@ describe('SpendingListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpendingListComponent ]
-    })
-    .compileComponents();
+      declarations: [SpendingListComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SpendingListComponent);
     component = fixture.componentInstance;
+    component.spending = [];
     fixture.detectChanges();
   });
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EventModel } from '../../shared/models/event.model';
-import { UserModel } from '../../shared/models/user.model';
-import { SpendingModel } from '../../shared/models/spending.model';
+import { EventModel } from '@shared/models/event.model';
+import { UserModel } from '@shared/models/user.model';
+import { SpendingModel } from '@shared/models/spending.model';
 
 @Injectable({
   providedIn: 'root',

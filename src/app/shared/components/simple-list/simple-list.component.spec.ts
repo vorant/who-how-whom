@@ -8,14 +8,14 @@ describe('EventsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SimpleListComponent ]
-    })
-    .compileComponents();
+      declarations: [SimpleListComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SimpleListComponent);
     component = fixture.componentInstance;
+    component.items = [];
     fixture.detectChanges();
   });
 

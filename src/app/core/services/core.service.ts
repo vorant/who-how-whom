@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EventModel } from '../../shared/models/event.model';
+import { EventModel } from '@shared/models/event.model';
 import { LocalStorageService } from './local-storage.service';
-import { SpendingModel } from '../../shared/models/spending.model';
+import { SpendingModel } from '@shared/models/spending.model';
 import { map } from 'rxjs/operators';
 
 @Injectable({

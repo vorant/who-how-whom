@@ -35,18 +35,20 @@ export class SpendingFormComponent implements OnInit {
         this.cost = this.form.value;
 
         this.who = this.users.find(user => user.id.toString() === this.form.userId.toString());
+
         this.selectedUsers = this.users.filter(user => this.form.usersId.includes(user.id));
       }
     });
   }
 
   add() {
+
     this.spending = {
       value: this.cost,
       userId: this.who.id.toString(),
       usersId: this.selectedUsers.map(user => user.id.toString()),
       date: new Date(),
-      id: new Date().getTime().toString(),
+      id: this.form && this.form.id || new Date().getTime().toString(),
       name: this.name,
       eventId: this.form && this.form.eventId || null
     }

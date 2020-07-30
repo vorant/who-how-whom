@@ -42,4 +42,17 @@ export class CoreService {
       map((spending) => spending.filter(el => el.eventId !== eventId))
     ).subscribe(this.saveSpending.bind(this));
   }
+
+  removeUser(userId: string) {
+    this.localStorageService.getSpending().pipe(
+      map((spending) => {
+        return  spending
+          .filter(el => el.userId !== userId.toString())
+          .map(el => {
+            el.usersId.filter(usr => usr.toString() !== userId.toString())
+            return el;
+          });
+      })
+    ).subscribe(this.saveSpending.bind(this));
+  }
 }

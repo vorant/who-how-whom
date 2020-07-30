@@ -55,6 +55,7 @@ export class UsersComponent implements OnInit {
       .pipe(filter(Boolean))
       .subscribe(result => {
         this.users = this.users.filter(intUser => intUser.id !== user.id);
+        this.coreService.removeUser(user.id);
         this.coreService.saveUsers(this.users);
       });
   }

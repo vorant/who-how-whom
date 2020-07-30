@@ -4,12 +4,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "experimentalDecorators": true,
-    "types": [],
-    "baseUrl": "./src",
-    "paths": {
-      "@shared/*": ["app/shared/*"],
-      "@core/*": ["app/core/*"]
-    }
+    "types": []
   },
   "files": [
     "src/main.ts",

@@ -5,3 +5,4 @@ export interface UpdatedSpendingModel extends SpendingModel {
   who: UserModel;
   withWho: UserModel[];
 }
+

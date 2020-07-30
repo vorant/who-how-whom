@@ -1,17 +1,15 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from "rxjs";
-import {EventModel} from "../../shared/models/event.model";
-import {LocalStorageService} from "./local-storage.service";
-import {SpendingModel} from "../../shared/models/spending.model";
-import {filter, map} from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EventModel } from '../../shared/models/event.model';
+import { LocalStorageService } from './local-storage.service';
+import { SpendingModel } from '../../shared/models/spending.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CoreService {
-  constructor(
-    private localStorageService: LocalStorageService
-  ) {}
+  constructor(private localStorageService: LocalStorageService) {}
 
   getSpending(): Observable<SpendingModel[]> {
     return this.localStorageService.getSpending();
@@ -38,21 +36,25 @@ export class CoreService {
   }
 
   removeSpending(eventId: string) {
-    this.localStorageService.getSpending().pipe(
-      map((spending) => spending.filter(el => el.eventId !== eventId))
-    ).subscribe(this.saveSpending.bind(this));
+    this.localStorageService
+      .getSpending()
+      .pipe(map((spending) => spending.filter((el) => el.eventId !== eventId)))
+      .subscribe(this.saveSpending.bind(this));
   }
 
   removeUser(userId: string) {
-    this.localStorageService.getSpending().pipe(
-      map((spending) => {
-        return  spending
-          .filter(el => el.userId !== userId.toString())
-          .map(el => {
-            el.usersId.filter(usr => usr.toString() !== userId.toString())
-            return el;
-          });
-      })
-    ).subscribe(this.saveSpending.bind(this));
+    this.localStorageService
+      .getSpending()
+      .pipe(
+        map((spending) => {
+          return spending
+            .filter((el) => el.userId !== userId.toString())
+            .map((el) => {
+              el.usersId.filter((usr) => usr.toString() !== userId.toString());
+              return el;
+            });
+        })
+      )
+      .subscribe(this.saveSpending.bind(this));
   }
 }

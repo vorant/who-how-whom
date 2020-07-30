@@ -3,14 +3,15 @@
     <mat-toolbar-row>
       <app-back-button></app-back-button>
       <app-spreader></app-spreader>
-      <span>Constant Users</span>
+      <span>Users</span>
       <app-spreader></app-spreader>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <app-simple-list [items]="users"
-                   (saveEvent)="saveUser($event)"
-                   (delEvent)="delUser($event)"
+  <app-simple-list
+    [items]="users"
+    (saveEvent)="saveUser($event)"
+    (delEvent)="delUser($event)"
   ></app-simple-list>
 
   <app-add-item (addString)="addUser($event)"></app-add-item>

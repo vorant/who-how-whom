@@ -1,4 +1,6 @@
 <mat-list>
+  <div *ngIf="!spending.length" class="spending-list__no">No spending are provided</div>
+
   <mat-list-item *ngFor="let item of spending">
     <div class="spending-list__item" matLine>
       <div class="spending-list__item-left">

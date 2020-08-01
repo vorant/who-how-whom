@@ -1,19 +1,35 @@
 <div class="events">
   <mat-toolbar color="primary">
+<!--    <button
+      mat-icon-button
+      *ngIf="Pwa.promptEvent"
+      class="events__icon-pwa"
+      aria-label="Install PWA"
+      (click)="installPWA()"
+    >
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>-->
     <mat-toolbar-row>
       <app-spreader></app-spreader>
       <span>Events</span>
       <app-spreader></app-spreader>
 
-      <a mat-icon-button [routerLink]="['/users']" class="header__icon" aria-label="Users">
+      <a
+        mat-icon-button
+        [routerLink]="['/users']"
+        class="header__icon"
+        aria-label="Users"
+      >
         <mat-icon>supervisor_account</mat-icon>
       </a>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <app-simple-list [items]="events" [url]="{ path: '/event', field: 'id' }"
-                   (saveEvent)="saveEvent($event)"
-                   (delEvent)="delEvent($event)"
+  <app-simple-list
+    [items]="events"
+    [url]="{ path: '/event', field: 'id' }"
+    (saveEvent)="saveEvent($event)"
+    (delEvent)="delEvent($event)"
   ></app-simple-list>
 
   <app-add-item (addString)="addString($event)"></app-add-item>

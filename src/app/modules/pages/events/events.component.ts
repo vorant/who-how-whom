@@ -53,4 +53,8 @@ export class EventsComponent implements OnInit {
         this.coreService.saveEvents(this.events);
       });
   }
+
+  installPWA() {
+    // this.Pwa.promptEvent.prompt();
+  }
 }

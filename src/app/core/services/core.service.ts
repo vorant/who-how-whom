@@ -9,28 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class CoreService {
-  constructor(private localStorageService: LocalStorageService) {
-    // just for test
-    window.addEventListener('beforeinstallprompt', (e: any) => {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      console.log('beforeinstallprompt:');
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      let deferredPrompt = e;
-      if ('prompt' in deferredPrompt) {
-        deferredPrompt.prompt();
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the A2HS prompt');
-          } else {
-            console.log('User dismissed the A2HS prompt');
-          }
-          deferredPrompt = null;
-        });
-      }
-    });
-  }
+  constructor(private localStorageService: LocalStorageService) {}
 
   getSpending(): Observable<SpendingModel[]> {
     return this.localStorageService.getSpending();

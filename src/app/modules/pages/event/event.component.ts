@@ -40,18 +40,20 @@ export class EventComponent implements OnInit {
     ]).subscribe(([spending, users]: [SpendingModel[], UserModel[]]) => {
       this.spending = spending;
       this.users = users;
-      this.updatedSpending = this.spending.map(
-        (el) =>
-          <UpdatedSpendingModel>{
-            ...el,
-            who: this.users.find(
-              (user) => user.id.toString() === el.userId.toString()
-            ),
-            withWho: this.users.filter((user) =>
-              el.usersId.includes(user.id.toString())
-            ),
-          }
-      );
+      this.updatedSpending = this.spending
+        .map(
+          (el) =>
+            <UpdatedSpendingModel>{
+              ...el,
+              who: this.users.find(
+                (user) => user.id.toString() === el.userId.toString()
+              ),
+              withWho: this.users.filter((user) =>
+                el.usersId.includes(user.id.toString())
+              ),
+            }
+        )
+        .filter((el) => el.eventId === this.eventId);
 
       this.updateResults();
     });

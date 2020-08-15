@@ -9,6 +9,8 @@ import { CoreService } from '@core/services/core.service';
 import { ConfirmDialogComponent } from '@shared/components/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
+import { UserEntityService } from '../../root-store/users-store/user-entity.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -21,13 +23,26 @@ import { filter } from 'rxjs/operators';
 })
 export class UsersComponent implements OnInit {
   users: UserModel[] = [];
+  users$: Observable<UserModel[]>;
+  loaded$: Observable<boolean>;
+  loading$: Observable<boolean>;
 
-  constructor(private coreService: CoreService, public dialog: MatDialog) {}
+  constructor(
+    private coreService: CoreService,
+    public dialog: MatDialog,
+    private userEntityService: UserEntityService
+  ) {
+    this.users$ = this.userEntityService.entities$;
+    this.loaded$ = this.userEntityService.loaded$;
+    this.loading$ = this.userEntityService.loading$;
+  }
 
   ngOnInit(): void {
     this.coreService.getUsers().subscribe((users: UserModel[]) => {
       this.users = users;
     });
+
+    this.userEntityService.getAll();
   }
 
   addUser(name: string) {

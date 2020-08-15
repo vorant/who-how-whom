@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "whw"
+  "defaultProject": "whw",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

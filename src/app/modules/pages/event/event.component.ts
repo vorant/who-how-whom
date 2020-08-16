@@ -38,7 +38,7 @@ export class EventComponent implements OnInit {
 
     combineLatest([
       this.spendingStoreService.getSpending(),
-      this.userEntityService.entities$,
+      this.userEntityService.getEntities(),
     ]).subscribe(([spending, users]: [SpendingModel[], UserModel[]]) => {
       this.updatedSpending = this.mapSpending(spending, users);
       this.updateResults();

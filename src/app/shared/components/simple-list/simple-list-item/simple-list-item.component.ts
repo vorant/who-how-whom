@@ -29,8 +29,7 @@ export class SimpleListItemComponent implements OnInit {
   }
 
   save() {
-    this.item.name = this.tmpName;
-    this.saveEvent.emit(this.item);
+    this.saveEvent.emit({ ...this.item, name: this.tmpName });
     this.editModes = !this.editModes;
   }
 

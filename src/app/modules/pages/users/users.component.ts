@@ -31,34 +31,23 @@ export class UsersComponent implements OnInit {
     private coreService: CoreService,
     public dialog: MatDialog,
     private userEntityService: UserEntityService
-  ) {
-    this.users$ = this.userEntityService.entities$;
+  ) {}
+
+  ngOnInit(): void {
+    this.users$ = this.userEntityService.getEntities();
     this.loaded$ = this.userEntityService.loaded$;
     this.loading$ = this.userEntityService.loading$;
   }
 
-  ngOnInit(): void {
-    this.coreService.getUsers().subscribe((users: UserModel[]) => {
-      this.users = users;
-    });
-
-    this.userEntityService.getAll();
-  }
-
   addUser(name: string) {
-    this.users.push({
+    this.userEntityService.add({
       name,
       id: new Date().getTime().toString(),
     });
-    this.coreService.saveUsers(this.users);
   }
 
   saveUser(user: UserModel) {
-    this.users = this.users.map((intUser) => {
-      return intUser.id === user.id ? user : intUser;
-    });
-
-    this.coreService.saveUsers(this.users);
+    this.userEntityService.upsert(user);
   }
 
   delUser(user: UserModel) {

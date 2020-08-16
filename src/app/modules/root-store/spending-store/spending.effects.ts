@@ -15,7 +15,7 @@ export class SpendingEffects {
           // get data
           return of([]); // demoData
         }),
-        delay(3000),
+        delay(1000),
         map((spending: SpendingModel[]) =>
           spendingActions.loadSpendingSuccess({ entities: spending })
         )

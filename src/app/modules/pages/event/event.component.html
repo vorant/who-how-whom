@@ -3,7 +3,7 @@
     <mat-toolbar-row>
       <app-back-button></app-back-button>
       <app-spreader></app-spreader>
-      <span>Event</span>
+      <span>Event {{ (event$ | async).name }}</span>
       <app-spreader></app-spreader>
       <a
         mat-icon-button

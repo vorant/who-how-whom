@@ -1,16 +1,27 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { SimpleListItemModel } from '@shared/models/simple-list-item.model';
 
 @Component({
   selector: 'app-simple-list-item',
   templateUrl: './simple-list-item.component.html',
   styleUrls: ['./simple-list-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SimpleListItemComponent implements OnInit {
   @Input() item: SimpleListItemModel;
   @Input() url?: { path: string; field: string };
   @Output() saveEvent = new EventEmitter<SimpleListItemModel>();
   @Output() delEvent = new EventEmitter<SimpleListItemModel>();
+  @ViewChild('inputEl') inputElement: ElementRef;
 
   tmpName: string = '';
   editModes = false;
@@ -22,6 +33,10 @@ export class SimpleListItemComponent implements OnInit {
   edit() {
     this.editModes = !this.editModes;
     this.tmpName = this.item.name;
+    // make focus async
+    setTimeout(() => {
+      this.inputElement.nativeElement.focus();
+    });
   }
 
   del() {

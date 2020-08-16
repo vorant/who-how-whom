@@ -1,8 +1,15 @@
 <div class="simple-list-item">
   <div class="simple-list-item__row" *ngIf="!editModes">
-    <span class="simple-list-item__item-label" *ngIf="!url">{{ item.name }}</span>
+    <span class="simple-list-item__item-label" *ngIf="!url">{{
+      item.name
+    }}</span>
 
-    <a class="simple-list-item__item-label" *ngIf="url" [routerLink]="[url.path + '/' + item[url.field]]">{{ item.name }}</a>
+    <a
+      class="simple-list-item__item-label"
+      *ngIf="url"
+      [routerLink]="[url.path + '/' + item[url.field]]"
+      >{{ item.name }}</a
+    >
 
     <div class="simple-list-item__item-icons">
       <button mat-icon-button aria-label="Edit" (click)="edit()">
@@ -16,7 +23,13 @@
 
   <div class="simple-list-item__row" *ngIf="editModes">
     <mat-form-field class="simple-list-item__form-field">
-      <input matInput [(ngModel)]="tmpName">
+      <input
+        #inputEl
+        matInput
+        [(ngModel)]="tmpName"
+        (keyup.enter)="save()"
+        (keyup.escape)="cancel()"
+      />
     </mat-form-field>
     <div class="simple-list-item__item-icons">
       <button mat-icon-button aria-label="Save" (click)="save()">

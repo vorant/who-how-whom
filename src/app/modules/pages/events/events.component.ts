@@ -26,6 +26,7 @@ export class EventsComponent implements OnInit {
       name: str,
       id: new Date().getTime().toString(),
     });
+    this.events = this.events.slice();
     this.coreService.saveEvents(this.events);
   }
 

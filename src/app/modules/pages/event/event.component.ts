@@ -3,15 +3,16 @@ import { SpendingModel } from '@shared/models/spending.model';
 import { UserModel } from '@shared/models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoreService } from '@core/services/core.service';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { UpdatedSpendingModel } from './updated-spending.model';
 import { ConfirmDialogComponent } from '@shared/components/confirm-dialog/confirm-dialog.component';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { ResultsService } from '@core/services/results.service';
 import { ResultsModel } from '@shared/models/results.model';
 import { SpendingStoreService } from '../../root-store/spending-store/spending-store.service';
 import { UserEntityService } from '../../root-store/users-store/user-entity.service';
+import { EventModel } from '@shared/models/event.model';
 
 @Component({
   selector: 'app-event',
@@ -22,6 +23,7 @@ export class EventComponent implements OnInit {
   eventId: string;
   updatedSpending: UpdatedSpendingModel[];
   results: ResultsModel[];
+  event$: Observable<EventModel>;
 
   constructor(
     private router: Router,
@@ -36,9 +38,16 @@ export class EventComponent implements OnInit {
   ngOnInit(): void {
     this.eventId = this.route.snapshot.paramMap.get('eventId');
 
+    this.event$ = this.coreService
+      .getEvents()
+      .pipe(map((events) => events.find((event) => event.id === this.eventId)));
+    // .subscribe((events: EventModel[]) => {
+    //   this.events = events;
+    // });
+
     combineLatest([
-      this.spendingStoreService.getSpending2(),
-      // this.spendingStoreService.getSpending(this.eventId),
+      // this.spendingStoreService.getSpending2(),
+      this.spendingStoreService.getSpending(this.eventId),
       this.userEntityService.getEntities(),
     ]).subscribe(([spending, users]: [SpendingModel[], UserModel[]]) => {
       this.updatedSpending = this.mapSpending(spending, users);

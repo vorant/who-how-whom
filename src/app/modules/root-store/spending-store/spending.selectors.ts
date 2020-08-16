@@ -23,6 +23,8 @@ export const selectOneSpending = createSelector(
 
 export const selectSpendingByEvent = createSelector(
   selectAllSpending,
-  (state, props: { eventId: string }) =>
-    state.entities.filter((el) => el.eventId === props.eventId)
+  (state, props: { eventId: string }) => ({
+    ...state,
+    entities: state.entities.filter((el) => el.eventId === props.eventId),
+  })
 );

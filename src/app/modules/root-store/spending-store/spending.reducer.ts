@@ -1,4 +1,4 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { SpendingModel } from '@shared/models/spending.model';
 import * as spendingActions from './spending.actions';
 
@@ -26,7 +26,8 @@ export const spendingReducer = createReducer(
   }),
   on(spendingActions.loadSpendingSuccess, (state, action) => {
     return {
-      ...state,
+      // ...state,
+      entities: action.entities,
       loaded: true,
       loading: false,
     };
@@ -44,13 +45,12 @@ export const spendingReducer = createReducer(
     };
   }),
 
-  on(spendingActions.addSpendingItem, (state, action) => {
+  on(spendingActions.editSpendingItem, (state, action) => {
     return {
       ...state,
-      entities: [
-        ...state.entities.filter((el) => el.id !== action.spendingItem.id),
-        action.spendingItem,
-      ],
+      entities: state.entities.map((el) =>
+        el.id === action.spendingItem.id ? action.spendingItem : el
+      ),
     };
   })
 );

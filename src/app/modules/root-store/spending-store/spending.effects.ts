@@ -4,6 +4,7 @@ import * as spendingActions from './spending.actions';
 import { catchError, delay, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { SpendingModel } from '@shared/models/spending.model';
+import { LocalStorageService } from '@core/services/local-storage.service';
 
 @Injectable()
 export class SpendingEffects {
@@ -11,10 +12,7 @@ export class SpendingEffects {
     () =>
       this.actions$.pipe(
         ofType(spendingActions.loadSpending),
-        mergeMap(() => {
-          // get data
-          return of([]); // demoData
-        }),
+        mergeMap(() => this.localStorageService.getSpending()),
         delay(1000),
         map((spending: SpendingModel[]) =>
           spendingActions.loadSpendingSuccess({ entities: spending })
@@ -27,9 +25,13 @@ export class SpendingEffects {
   addSpendingItem$ = createEffect(() =>
     this.actions$.pipe(
       ofType(spendingActions.addSpendingItem),
-      mergeMap((spendingItem) => {
-        // save data
-        return of(spendingItem);
+      mergeMap((data) => {
+        return this.localStorageService.getSpending().pipe(
+          tap((spending) => {
+            spending.push(data.spendingItem);
+            this.localStorageService.saveSpending(spending);
+          })
+        );
       }),
       map(() => spendingActions.addSpendingItemSuccess())
     )
@@ -38,9 +40,13 @@ export class SpendingEffects {
   deleteSpendingItem$ = createEffect(() =>
     this.actions$.pipe(
       ofType(spendingActions.deleteSpendingItem),
-      mergeMap((id) => {
-        // delete data
-        return of(true);
+      mergeMap((data) => {
+        return this.localStorageService.getSpending().pipe(
+          tap((spending) => {
+            spending = spending.filter((el) => el.id !== data.id);
+            this.localStorageService.saveSpending(spending);
+          })
+        );
       }),
       map(() => spendingActions.deleteSpendingItemSuccess())
     )
@@ -49,13 +55,23 @@ export class SpendingEffects {
   editSpendingItem$ = createEffect(() =>
     this.actions$.pipe(
       ofType(spendingActions.editSpendingItem),
-      mergeMap((spendingItem) => {
-        // edit data
-        return of(spendingItem);
+      mergeMap((data) => {
+        return this.localStorageService.getSpending().pipe(
+          tap((spending) => {
+            this.localStorageService.saveSpending(
+              spending.map((el) =>
+                el.id === data.spendingItem.id ? data.spendingItem : el
+              )
+            );
+          })
+        );
       }),
       map(() => spendingActions.editSpendingItemSuccess())
     )
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(
+    private actions$: Actions,
+    private localStorageService: LocalStorageService
+  ) {}
 }

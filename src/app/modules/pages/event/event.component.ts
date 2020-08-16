@@ -37,7 +37,8 @@ export class EventComponent implements OnInit {
     this.eventId = this.route.snapshot.paramMap.get('eventId');
 
     combineLatest([
-      this.spendingStoreService.getSpending(),
+      this.spendingStoreService.getSpending2(),
+      // this.spendingStoreService.getSpending(this.eventId),
       this.userEntityService.getEntities(),
     ]).subscribe(([spending, users]: [SpendingModel[], UserModel[]]) => {
       this.updatedSpending = this.mapSpending(spending, users);

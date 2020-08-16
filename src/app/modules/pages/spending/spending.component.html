@@ -3,10 +3,14 @@
     <mat-toolbar-row>
       <app-back-button></app-back-button>
       <app-spreader></app-spreader>
-      <span>Add spending</span>
+      <span>{{ type === "create" ? "Add" : "Edit" }} spending</span>
       <app-spreader></app-spreader>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <app-spending-form (create)="create($event)" (cancel)="cancel()" [form]="spendingForm"></app-spending-form>
+  <app-spending-form
+    (create)="create($event)"
+    (cancel)="cancel()"
+    [form]="spendingForm"
+  ></app-spending-form>
 </div>

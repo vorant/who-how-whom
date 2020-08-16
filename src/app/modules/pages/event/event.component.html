@@ -5,7 +5,12 @@
       <app-spreader></app-spreader>
       <span>Event</span>
       <app-spreader></app-spreader>
-      <a mat-icon-button [routerLink]="['/users']" class="header__icon" aria-label="Users">
+      <a
+        mat-icon-button
+        [routerLink]="['/users']"
+        class="header__icon"
+        aria-label="Users"
+      >
         <mat-icon>supervisor_account</mat-icon>
       </a>
     </mat-toolbar-row>
@@ -14,11 +19,17 @@
   <h2 class="event__heading">Spending:</h2>
 
   <div class="mat-elevation-z4">
-    <app-spending-list [spending]="updatedSpending" (edit)="edit($event)" (del)="del($event)"></app-spending-list>
+    <app-spending-list
+      [spending]="updatedSpending"
+      (edit)="edit($event)"
+      (del)="del($event)"
+    ></app-spending-list>
   </div>
 
   <div class="event__new-btn">
-    <button mat-raised-button color="primary" (click)="addSpending()">Add new spending</button>
+    <button mat-raised-button color="primary" (click)="addSpending()">
+      Add new spending
+    </button>
   </div>
 
   <h2 class="event__heading">Results:</h2>

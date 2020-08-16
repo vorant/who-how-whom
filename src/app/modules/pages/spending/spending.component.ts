@@ -57,6 +57,7 @@ export class SpendingComponent implements OnInit {
     if (this.type === 'edit') {
       this.spendingStoreService.editSpendingItem(spending);
     } else {
+      spending.eventId = this.route.snapshot.paramMap.get('eventId');
       this.spendingStoreService.addSpendingItem(spending);
     }
     /*    if (spending.eventId) {

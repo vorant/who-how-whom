@@ -1,8 +1,10 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>, app: AppComponent;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
@@ -10,16 +12,27 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  test.skip('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
+  });
+
+  test('should create the app', () => {
     expect(app).toBeTruthy();
   });
 
   test(`should have as title 'whw'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
     expect(app.title).toEqual('whw');
+  });
+
+  test.skip(`should be equals to 1`, () => {
+    expect(app.someF(0)).toBe(1);
+  });
+
+  test(`should be equals to 3`, () => {
+    expect(app.someF(1)).toBe(3);
+    expect(app.someF(2)).toBe(3);
+    expect(app.someF(3)).toBe(3);
   });
 
   /*  it('should render title', () => {

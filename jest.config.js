@@ -3,7 +3,8 @@
 module.exports = {
   globals: {
     "ts-jest": {
-      tsConfig: "<rootDir>/tsconfig.spec.json",
+      // tsConfig: "<rootDir>/tsconfig.spec.json",
+      tsConfig: "./tsconfig.spec.json",
       stringifyContentPathRegex: "\\.html$",
       astTransformers: {
         before: [
@@ -25,15 +26,17 @@ module.exports = {
   moduleNameMapper: {
     "\\.(jpg|jpeg|png)$": "<rootDir>/__mocks__/image.js",
     "^@lib/(.*)$": "<rootDir>/src/lib/$1",
+    "^@shared/(.*)$": "<rootDir>/src/app/shared/$1",
+    "^@core/(.*)$": "<rootDir>/src/app/core/$1",
   },
   setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
   modulePathIgnorePatterns: [
-    "<rootDir>/src/app/core/",
+    // "<rootDir>/src/app/core/",
     "<rootDir>/src/app/modules/",
     "<rootDir>/src/app/shared/",
   ],
   watchPathIgnorePatterns: [
-    "<rootDir>/src/app/core/",
+    // "<rootDir>/src/app/core/",
     "<rootDir>/src/app/modules/",
     "<rootDir>/src/app/shared/",
   ],
@@ -47,13 +50,7 @@ module.exports = {
       statements: -10,
     },
   },
-  // reporters: [
-  //   "default",
-  //   [
-  //     "./node_modules/jest-html-reporter",
-  //     {
-  //       pageTitle: "Test Report",
-  //     },
-  //   ],
-  // ],
+  verbose: true,
+  roots: ["<rootDir>"],
+  modulePaths: ["<rootDir>"],
 };

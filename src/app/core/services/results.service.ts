@@ -31,8 +31,8 @@ export class ResultsService {
           };
         }
 
-        balance[lend].how += spendingItem.value / spendingItem.withWho.length;
-        balance[borrow].how -= spendingItem.value / spendingItem.withWho.length;
+        balance[lend].how -= spendingItem.value / spendingItem.withWho.length;
+        balance[borrow].how += spendingItem.value / spendingItem.withWho.length;
       });
     });
 

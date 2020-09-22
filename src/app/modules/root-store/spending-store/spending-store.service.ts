@@ -10,7 +10,9 @@ import {
 import { map, tap } from 'rxjs/operators';
 import * as SpendingActions from './spending.actions';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class SpendingStoreService {
   constructor(private store: Store) {}
 

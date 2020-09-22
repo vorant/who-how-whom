@@ -36,7 +36,7 @@ module.exports = {
     "<rootDir>/src/app/modules/pages/events",
     "<rootDir>/src/app/modules/pages/spending",
     "<rootDir>/src/app/modules/components",
-    "<rootDir>/src/app/modules/root-store",
+    // "<rootDir>/src/app/modules/root-store",
     // "<rootDir>/src/app/shared/",
   ],
   watchPathIgnorePatterns: [
@@ -46,7 +46,7 @@ module.exports = {
     "<rootDir>/src/app/modules/pages/events",
     "<rootDir>/src/app/modules/pages/spending",
     "<rootDir>/src/app/modules/components",
-    "<rootDir>/src/app/modules/root-store",
+    // "<rootDir>/src/app/modules/root-store",
     // "<rootDir>/src/app/shared/",
   ],
   testPathIgnorePatterns: [],

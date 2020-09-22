@@ -44,7 +44,6 @@ export const spendingReducer = createReducer(
       entities: state.entities.filter((el) => el.id !== action.id),
     };
   }),
-
   on(spendingActions.editSpendingItem, (state, action) => {
     return {
       ...state,

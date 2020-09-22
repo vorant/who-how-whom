@@ -21,7 +21,7 @@ export class UserEntityService extends EntityCollectionServiceBase<UserModel> {
           this.getAll();
         }
       }),
-      map(([loaded, loading, entities]) => entities)
+      map(([, , entities]) => entities)
     );
   }
 }

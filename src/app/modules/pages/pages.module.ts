@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';

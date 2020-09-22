@@ -8,12 +8,6 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <!--  <app-simple-list
-    [items]="users"
-    (saveEvent)="saveUser($event)"
-    (delEvent)="delUser($event)"
-  ></app-simple-list>-->
-
   <app-simple-list
     [items]="users$ | async"
     (saveEvent)="saveUser($event)"

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddItemComponent } from './add-item.component';
+import { SharedModule } from '@shared/shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AddItemComponent', () => {
   let component: AddItemComponent;
@@ -8,16 +10,18 @@ describe('AddItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddItemComponent ]
+      imports: [SharedModule, NoopAnimationsModule],
     })
-    .compileComponents();
+      .compileComponents()
+      .then(() => {
+        fixture = TestBed.createComponent(AddItemComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      })
+      .catch((err) => {
+        console.log('err:', err);
+      });
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AddItemComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

@@ -37,7 +37,7 @@ module.exports = {
     "<rootDir>/src/app/modules/pages/spending",
     "<rootDir>/src/app/modules/components",
     "<rootDir>/src/app/modules/root-store",
-    "<rootDir>/src/app/shared/",
+    // "<rootDir>/src/app/shared/",
   ],
   watchPathIgnorePatterns: [
     // "<rootDir>/src/app/core/",
@@ -47,7 +47,7 @@ module.exports = {
     "<rootDir>/src/app/modules/pages/spending",
     "<rootDir>/src/app/modules/components",
     "<rootDir>/src/app/modules/root-store",
-    "<rootDir>/src/app/shared/",
+    // "<rootDir>/src/app/shared/",
   ],
   testPathIgnorePatterns: [],
   coveragePathIgnorePatterns: [],

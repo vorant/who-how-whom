@@ -6,6 +6,7 @@ import {
   MatDialogModule,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { SharedModule } from '@shared/shared.module';
 
 describe('ConfirmDialogComponent', () => {
   let component: ConfirmDialogComponent;
@@ -13,20 +14,23 @@ describe('ConfirmDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ConfirmDialogComponent],
-      imports: [MatDialogModule],
+      // declarations: [ConfirmDialogComponent],
+      imports: [SharedModule],
       providers: [
         { provide: MatDialogRef, useValue: { close: () => {} } },
         { provide: MAT_DIALOG_DATA, useValue: {} },
       ],
-    }).compileComponents();
+    })
+      .compileComponents()
+      .then(() => {
+        fixture = TestBed.createComponent(ConfirmDialogComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      })
+      .catch((err) => {
+        console.log('err:', err);
+      });
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmDialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

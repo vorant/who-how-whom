@@ -7,6 +7,7 @@ import {
   ChangeDetectionStrategy,
   ElementRef,
   ViewChild,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { SimpleListItemModel } from '@shared/models/simple-list-item.model';
 
@@ -26,7 +27,7 @@ export class SimpleListItemComponent implements OnInit {
   tmpName: string = '';
   editModes = false;
 
-  constructor() {}
+  constructor(public cdRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
 

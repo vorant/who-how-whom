@@ -16,8 +16,10 @@ export class SpendingEffects {
         delay(1000),
         map((spending: SpendingModel[]) =>
           spendingActions.loadSpendingSuccess({ entities: spending })
-        )
-        // catchError((error) => spendingActions.loadSpendingFailure({ error }))
+        ),
+        catchError((error: any) => {
+          return of(spendingActions.loadSpendingFailure({ error }));
+        })
       )
     // { dispatch: false }
   );

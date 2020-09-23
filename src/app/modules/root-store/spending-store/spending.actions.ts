@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { SpendingState } from './spending.reducer';
 import { SpendingModel } from '@shared/models/spending.model';
 
 export const loadSpending = createAction('[Spending] Load Spending');

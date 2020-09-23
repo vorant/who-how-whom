@@ -17,3 +17,13 @@ install:
   - npm ci
 script:
   - npm run test
+
+jobs:
+  include:
+    - stage: test
+      script:
+      - npm run test
+      - npm run test:coverage
+    - stage: deploy
+      script:
+      - npm run deploy

@@ -25,7 +25,8 @@ jobs:
 #        - npm run lint
     - stage: deploy
       script:
-        - npm run deploy
+#        - npm run deploy
+      - npm run prod
 
 deploy:
   provider: pages

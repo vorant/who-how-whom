@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prod": "ng build --prod --base-href /who-how-whom/",
     "deploy": "ng deploy",
     "test_orig": "ng test",
     "lint": "ng lint",

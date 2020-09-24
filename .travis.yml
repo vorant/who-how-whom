@@ -31,6 +31,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: 217695e48b9a0d661f0578c4acad05f09e583302
-  local_dir: dist/travis-demo
+  local_dir: dist/whw
   on:
     branch: master

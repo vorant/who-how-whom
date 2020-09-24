@@ -6,19 +6,17 @@ interface AppState {
   [spendingFeatureKey]: SpendingState;
 }
 
-export const selectSpendingState = createFeatureSelector<
-  AppState,
-  SpendingState
->(spendingFeatureKey);
+export const selectSpendingState = createFeatureSelector<AppState, SpendingState>(
+  spendingFeatureKey,
+);
 
 export const selectAllSpending = createSelector(
   selectSpendingState,
-  (state: SpendingState) => state
+  (state: SpendingState) => state,
 );
 
-export const selectOneSpending = createSelector(
-  selectAllSpending,
-  (state, props) => state.entities.find((el) => el.id === props.id)
+export const selectOneSpending = createSelector(selectAllSpending, (state, props) =>
+  state.entities.find((el) => el.id === props.id),
 );
 
 export const selectSpendingByEvent = createSelector(
@@ -26,5 +24,5 @@ export const selectSpendingByEvent = createSelector(
   (state, props: { eventId: string }) => ({
     ...state,
     entities: state.entities.filter((el) => el.eventId === props.eventId),
-  })
+  }),
 );

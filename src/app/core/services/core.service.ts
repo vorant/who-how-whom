@@ -53,7 +53,7 @@ export class CoreService {
               el.usersId.filter((usr) => usr.toString() !== userId.toString());
               return el;
             });
-        })
+        }),
       )
       .subscribe(this.saveSpending.bind(this));
   }

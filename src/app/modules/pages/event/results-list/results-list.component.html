@@ -2,9 +2,10 @@
   <div *ngIf="!results.length" class="results-list__no-results">No results are provided</div>
   <mat-list-item *ngFor="let item of results">
     <div class="spending-list__item" matLine>
-      <p matLine>{{item.who.name}} <b>owns</b> to {{item.whom.name}} <b>{{item.how}}</b></p>
+      <p matLine>
+        {{ item.who.name }} <b>owns</b> to {{ item.whom.name }} <b>{{ item.how }}</b>
+      </p>
     </div>
     <mat-divider></mat-divider>
   </mat-list-item>
 </mat-list>
-

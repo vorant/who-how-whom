@@ -48,8 +48,8 @@ export const spendingReducer = createReducer(
     return {
       ...state,
       entities: state.entities.map((el) =>
-        el.id === action.spendingItem.id ? action.spendingItem : el
+        el.id === action.spendingItem.id ? action.spendingItem : el,
       ),
     };
-  })
+  }),
 );

@@ -48,9 +48,7 @@ export class EventsComponent implements OnInit {
       .pipe(filter(Boolean))
       .subscribe(() => {
         this.coreService.removeSpending(event.id);
-        this.events = this.events.filter(
-          (intEvent) => intEvent.id !== event.id
-        );
+        this.events = this.events.filter((intEvent) => intEvent.id !== event.id);
         this.coreService.saveEvents(this.events);
       });
   }

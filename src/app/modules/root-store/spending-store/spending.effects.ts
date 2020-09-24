@@ -15,12 +15,12 @@ export class SpendingEffects {
         mergeMap(() => this.localStorageService.getSpending()),
         delay(1000),
         map((spending: SpendingModel[]) =>
-          spendingActions.loadSpendingSuccess({ entities: spending })
+          spendingActions.loadSpendingSuccess({ entities: spending }),
         ),
         catchError((error: any) => {
           return of(spendingActions.loadSpendingFailure({ error }));
-        })
-      )
+        }),
+      ),
     // { dispatch: false }
   );
 
@@ -32,11 +32,11 @@ export class SpendingEffects {
           tap((spending) => {
             spending.push(data.spendingItem);
             this.localStorageService.saveSpending(spending);
-          })
+          }),
         );
       }),
-      map(() => spendingActions.addSpendingItemSuccess())
-    )
+      map(() => spendingActions.addSpendingItemSuccess()),
+    ),
   );
 
   deleteSpendingItem$ = createEffect(() =>
@@ -47,11 +47,11 @@ export class SpendingEffects {
           tap((spending) => {
             spending = spending.filter((el) => el.id !== data.id);
             this.localStorageService.saveSpending(spending);
-          })
+          }),
         );
       }),
-      map(() => spendingActions.deleteSpendingItemSuccess())
-    )
+      map(() => spendingActions.deleteSpendingItemSuccess()),
+    ),
   );
 
   editSpendingItem$ = createEffect(() =>
@@ -61,19 +61,14 @@ export class SpendingEffects {
         return this.localStorageService.getSpending().pipe(
           tap((spending) => {
             this.localStorageService.saveSpending(
-              spending.map((el) =>
-                el.id === data.spendingItem.id ? data.spendingItem : el
-              )
+              spending.map((el) => (el.id === data.spendingItem.id ? data.spendingItem : el)),
             );
-          })
+          }),
         );
       }),
-      map(() => spendingActions.editSpendingItemSuccess())
-    )
+      map(() => spendingActions.editSpendingItemSuccess()),
+    ),
   );
 
-  constructor(
-    private actions$: Actions,
-    private localStorageService: LocalStorageService
-  ) {}
+  constructor(private actions$: Actions, private localStorageService: LocalStorageService) {}
 }

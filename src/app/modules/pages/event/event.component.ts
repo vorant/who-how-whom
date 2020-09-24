@@ -32,7 +32,7 @@ export class EventComponent implements OnInit {
     private resultsService: ResultsService,
     public dialog: MatDialog,
     private spendingStoreService: SpendingStoreService,
-    private userEntityService: UserEntityService
+    private userEntityService: UserEntityService,
   ) {}
 
   ngOnInit(): void {
@@ -80,21 +80,14 @@ export class EventComponent implements OnInit {
     this.results = this.resultsService.getResults(this.updatedSpending);
   }
 
-  private mapSpending(
-    spending: SpendingModel[],
-    users: UserModel[]
-  ): UpdatedSpendingModel[] {
+  private mapSpending(spending: SpendingModel[], users: UserModel[]): UpdatedSpendingModel[] {
     return spending.map(
       (el) =>
         <UpdatedSpendingModel>{
           ...el,
-          who: users.find(
-            (user) => user.id.toString() === el.userId.toString()
-          ),
-          withWho: users.filter((user) =>
-            el.usersId.includes(user.id.toString())
-          ),
-        }
+          who: users.find((user) => user.id.toString() === el.userId.toString()),
+          withWho: users.filter((user) => el.usersId.includes(user.id.toString())),
+        },
     );
   }
 }

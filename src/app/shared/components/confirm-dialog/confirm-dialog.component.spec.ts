@@ -1,11 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConfirmDialogComponent } from './confirm-dialog.component';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogModule,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { SharedModule } from '@shared/shared.module';
 
 describe('ConfirmDialogComponent', () => {
@@ -28,7 +24,7 @@ describe('ConfirmDialogComponent', () => {
         fixture.detectChanges();
       })
       .catch((err) => {
-        console.log('err:', err);
+        console.error('err:', err);
       });
   }));
 

@@ -20,10 +20,7 @@ describe('SpendingComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [SpendingComponent],
-      providers: [
-        { provide: ActivatedRoute, useValue: fakeActivatedRoute },
-        Router,
-      ],
+      providers: [{ provide: ActivatedRoute, useValue: fakeActivatedRoute }, Router],
     }).compileComponents();
   }));
 

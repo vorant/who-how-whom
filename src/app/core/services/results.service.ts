@@ -37,7 +37,7 @@ export class ResultsService {
     });
 
     const result = [];
-    for (let prop in balance) {
+    for (const prop in balance) {
       if (balance[prop].how > 0) {
         result.push(balance[prop]);
       }

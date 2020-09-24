@@ -12,7 +12,7 @@ export class UsersDataService extends DefaultDataService<UserModel> {
   constructor(
     http: HttpClient,
     httpUrlGenerator: HttpUrlGenerator,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
   ) {
     super(UserStoreVariable, http, httpUrlGenerator, defaultDataServiceConfig);
   }
@@ -28,7 +28,7 @@ export class UsersDataService extends DefaultDataService<UserModel> {
         this.localStorageService.saveUsers(users);
       }),
       map(() => entity),
-      delay(1000)
+      delay(1000),
     );
   }
 
@@ -39,7 +39,7 @@ export class UsersDataService extends DefaultDataService<UserModel> {
         this.localStorageService.saveUsers(users);
       }),
       map(() => key),
-      delay(1000)
+      delay(1000),
     );
   }
 
@@ -55,7 +55,7 @@ export class UsersDataService extends DefaultDataService<UserModel> {
         this.localStorageService.saveUsers(users);
       }),
       map(() => entity),
-      delay(1000)
+      delay(1000),
     );
   }
 }

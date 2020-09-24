@@ -9,11 +9,7 @@ export class AppComponent {
   title = 'whw';
 
   someF(a: number): number {
-    if (a === 0) {
-      a = 1;
-    } else {
-      a = 2;
-    }
+    a = a === 0 ? 1 : 2;
 
     if (a === 2) {
       a = 3;

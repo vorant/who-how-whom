@@ -5,13 +5,13 @@
     <div class="spending-list__item" matLine>
       <div class="spending-list__item-left">
         <p></p>
-        <p matLine><b>What:</b> {{item?.name}}</p>
-        <p matLine><b>Who:</b> {{item?.who?.name}} </p>
-        <p matLine><b>How much:</b> {{item?.value}} </p>
+        <p matLine><b>What:</b> {{ item?.name }}</p>
+        <p matLine><b>Who:</b> {{ item?.who?.name }}</p>
+        <p matLine><b>How much:</b> {{ item?.value }}</p>
         <div matLine>
           <b>With who:</b>
           <mat-chip-list aria-label="Fish selection">
-            <mat-chip *ngFor="let user of item.withWho">{{user.name}}</mat-chip>
+            <mat-chip *ngFor="let user of item.withWho">{{ user.name }}</mat-chip>
           </mat-chip-list>
         </div>
       </div>

@@ -24,7 +24,7 @@ export class SimpleListItemComponent implements OnInit {
   @Output() delEvent = new EventEmitter<SimpleListItemModel>();
   @ViewChild('inputEl') inputElement: ElementRef;
 
-  tmpName: string = '';
+  tmpName = '';
   editModes = false;
 
   constructor(public cdRef: ChangeDetectorRef) {}

@@ -33,7 +33,7 @@ describe('UsersComponent', () => {
         fixture.detectChanges();
       })
       .catch((err) => {
-        console.log('err:', err);
+        console.error('err:', err);
       });
   }));
 
@@ -50,9 +50,7 @@ describe('UsersComponent', () => {
 
   it('should contain `app-simple-list` component', () => {
     const usersComponent: HTMLElement = fixture.nativeElement;
-    const appSimpleListComponent = usersComponent.querySelector(
-      'app-simple-list'
-    );
+    const appSimpleListComponent = usersComponent.querySelector('app-simple-list');
 
     expect(appSimpleListComponent).toBeTruthy();
   });
@@ -73,9 +71,7 @@ describe('UsersComponent', () => {
 
   it('should contain 2 components of `app-simple-list-item`', () => {
     const usersComponent: HTMLElement = fixture.nativeElement;
-    const appSimpleListComponents = usersComponent.querySelectorAll(
-      'app-simple-list-item'
-    );
+    const appSimpleListComponents = usersComponent.querySelectorAll('app-simple-list-item');
 
     expect(appSimpleListComponents.length).toEqual(2);
   });

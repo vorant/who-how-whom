@@ -1,8 +1,4 @@
-import {
-  spendingReducer,
-  initialState,
-  SpendingState,
-} from './spending.reducer';
+import { spendingReducer, initialState, SpendingState } from './spending.reducer';
 import * as spendingActions from './spending.actions';
 import { SpendingModel } from '@shared/models/spending.model';
 
@@ -30,11 +26,7 @@ describe('Spending Reducer', () => {
 
     it('should remove entity', () => {
       const action = spendingActions.deleteSpendingItem({ id: '1' });
-      const entities = [
-        { id: '1' },
-        { id: '2' },
-        { id: '3' },
-      ] as SpendingModel[];
+      const entities = [{ id: '1' }, { id: '2' }, { id: '3' }] as SpendingModel[];
       const initState = {
         entities,
       } as SpendingState;

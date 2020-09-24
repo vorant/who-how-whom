@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SpendingModel } from '@shared/models/spending.model';
 import { select, Store } from '@ngrx/store';
-import {
-  selectAllSpending,
-  selectOneSpending,
-  selectSpendingByEvent,
-} from './spending.selectors';
+import { selectAllSpending, selectOneSpending, selectSpendingByEvent } from './spending.selectors';
 import { map, tap } from 'rxjs/operators';
 import * as SpendingActions from './spending.actions';
 
@@ -24,7 +20,7 @@ export class SpendingStoreService {
           this.store.dispatch(SpendingActions.loadSpending());
         }
       }),
-      map((state) => state.entities)
+      map((state) => state.entities),
     );
   }
 
@@ -36,7 +32,7 @@ export class SpendingStoreService {
           this.store.dispatch(SpendingActions.loadSpending());
         }
       }),
-      map((state) => state.entities)
+      map((state) => state.entities),
     );
   }
 

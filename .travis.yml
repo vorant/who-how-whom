@@ -15,15 +15,22 @@ cache:
     - ~/.cache
 install:
   - npm ci
-script:
-  - npm run test
 
 jobs:
   include:
     - stage: test
       script:
-      - npm run test
-      - npm run test:coverage
+        - npm run test
+        - npm run test:coverage
+        - npm run lint
     - stage: deploy
       script:
-      - npm run deploy
+        - npm run deploy
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: 217695e48b9a0d661f0578c4acad05f09e583302
+  local_dir: dist/travis-demo
+  on:
+    branch: master

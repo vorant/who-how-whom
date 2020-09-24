@@ -7,7 +7,7 @@ export const entityMetadata: EntityMetadataMap = {
     entityDispatcherOptions: {
       optimisticUpdate: true,
       optimisticAdd: true,
-    }
+    },
   },
 };
 

@@ -8,9 +8,8 @@ describe('SpreaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpreaderComponent ]
-    })
-    .compileComponents();
+      declarations: [SpreaderComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -16,11 +16,7 @@ describe('SpendingEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        SpendingEffects,
-        provideMockActions(() => actions$),
-        LocalStorageService,
-      ],
+      providers: [SpendingEffects, provideMockActions(() => actions$), LocalStorageService],
     });
 
     testScheduler = new TestScheduler((actual, expected) => {

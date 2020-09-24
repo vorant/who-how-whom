@@ -64,11 +64,7 @@ describe('ResultsService', () => {
       },
     ];
 
-    const result = service.getResults([
-      spending.spending1,
-      spending.spending2,
-      spending.spending3,
-    ]);
+    const result = service.getResults([spending.spending1, spending.spending2, spending.spending3]);
 
     expect(expected).toEqual(result);
   });

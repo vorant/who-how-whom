@@ -15,7 +15,6 @@ import { StoreModule } from '@ngrx/store';
 import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],

@@ -39,13 +39,9 @@ export class SpendingFormComponent implements OnInit {
         this.name = this.form.name;
         this.cost = this.form.value;
 
-        this.who = this.users.find(
-          (user) => user.id.toString() === this.form.userId.toString()
-        );
+        this.who = this.users.find((user) => user.id.toString() === this.form.userId.toString());
 
-        this.selectedUsers = this.users.filter((user) =>
-          this.form.usersId.includes(user.id)
-        );
+        this.selectedUsers = this.users.filter((user) => this.form.usersId.includes(user.id));
       }
     });
   }

@@ -1,10 +1,4 @@
-import {
-  async,
-  ComponentFixture,
-  fakeAsync,
-  flush,
-  TestBed,
-} from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, flush, TestBed } from '@angular/core/testing';
 
 import { SimpleListItemComponent } from './simple-list-item.component';
 import { SharedModule } from '@shared/shared.module';
@@ -19,11 +13,7 @@ describe.only('SimpleListItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        SharedModule,
-        RouterTestingModule.withRoutes([]),
-        NoopAnimationsModule,
-      ],
+      imports: [SharedModule, RouterTestingModule.withRoutes([]), NoopAnimationsModule],
     })
       .compileComponents()
       .then(() => {
@@ -38,7 +28,7 @@ describe.only('SimpleListItemComponent', () => {
         fixture.detectChanges();
       })
       .catch((err) => {
-        console.log('err:', err);
+        console.error('err:', err);
       });
   }));
 
@@ -49,9 +39,7 @@ describe.only('SimpleListItemComponent', () => {
   it('Should throw Save event', fakeAsync(() => {
     component.inputElement = new ElementRef({ focus: () => {} });
 
-    const buttons = fixture.nativeElement.querySelectorAll(
-      '.simple-list-item__item-icons'
-    );
+    const buttons = fixture.nativeElement.querySelectorAll('.simple-list-item__item-icons');
     expect(buttons.length).toEqual(1);
 
     const firstButton = buttons[0].querySelectorAll('button')[0];

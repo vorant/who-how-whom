@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
   constructor(
     private coreService: CoreService,
     public dialog: MatDialog,
-    private userEntityService: UserEntityService
+    private userEntityService: UserEntityService,
   ) {}
 
   ngOnInit(): void {

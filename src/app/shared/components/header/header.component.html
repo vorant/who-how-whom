@@ -1,11 +1,17 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button class="header__icon" *ngIf="back" aria-label="Back" (click)="backButton()">
+    <button
+      mat-icon-button
+      class="header__icon"
+      *ngIf="back"
+      aria-label="Back"
+      (click)="backButton()"
+    >
       <mat-icon>keyboard_backspace</mat-icon>
     </button>
     <span class="header__spacer"></span>
     <span>
-      {{title}}
+      {{ title }}
     </span>
     <span class="header__spacer"></span>
     <a mat-icon-button [routerLink]="['/users']" class="header__icon" aria-label="Users">

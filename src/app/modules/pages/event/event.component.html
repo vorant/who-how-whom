@@ -5,12 +5,7 @@
       <app-spreader></app-spreader>
       <span>Event {{ (event$ | async).name }}</span>
       <app-spreader></app-spreader>
-      <a
-        mat-icon-button
-        [routerLink]="['/users']"
-        class="header__icon"
-        aria-label="Users"
-      >
+      <a mat-icon-button [routerLink]="['/users']" class="header__icon" aria-label="Users">
         <mat-icon>supervisor_account</mat-icon>
       </a>
     </mat-toolbar-row>

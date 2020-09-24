@@ -19,7 +19,7 @@ describe('HeaderComponent', () => {
         fixture.detectChanges();
       })
       .catch((err) => {
-        console.log('err:', err);
+        console.error('err:', err);
       });
   }));
 

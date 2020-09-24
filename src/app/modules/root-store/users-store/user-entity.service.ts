@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  EntityCollectionServiceBase,
-  EntityCollectionServiceElementsFactory,
-} from '@ngrx/data';
+import { EntityCollectionServiceBase, EntityCollectionServiceElementsFactory } from '@ngrx/data';
 import { UserModel } from '@shared/models/user.model';
 import { UserStoreVariable } from './user-metadata';
 import { combineLatest, Observable } from 'rxjs';
@@ -21,7 +18,7 @@ export class UserEntityService extends EntityCollectionServiceBase<UserModel> {
           this.getAll();
         }
       }),
-      map(([, , entities]) => entities)
+      map(([, , entities]) => entities),
     );
   }
 }

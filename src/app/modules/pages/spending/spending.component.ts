@@ -16,7 +16,7 @@ export class SpendingComponent implements OnInit {
     private location: Location,
     private coreService: CoreService,
     private route: ActivatedRoute,
-    private spendingStoreService: SpendingStoreService
+    private spendingStoreService: SpendingStoreService,
   ) {}
 
   type: 'edit' | 'create';
@@ -29,13 +29,11 @@ export class SpendingComponent implements OnInit {
     this.type = spendingId ? 'edit' : 'create';
 
     if (spendingId) {
-      this.spendingStoreService
-        .getSendingItem(spendingId)
-        .subscribe((spending) => {
-          if (spending) {
-            this.spendingForm = spending;
-          }
-        });
+      this.spendingStoreService.getSendingItem(spendingId).subscribe((spending) => {
+        if (spending) {
+          this.spendingForm = spending;
+        }
+      });
     }
 
     // this.coreService.getSpending().subscribe((spending: SpendingModel[]) => {

@@ -14,7 +14,9 @@
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand",
     "test:coverage": "jest --coverage",
-    "test:coverage:report": "(cd ./coverage/lcov-report && http-server -o /index.html -c-1)"
+    "test:coverage:report": "(cd ./coverage/lcov-report && http-server -o /index.html -c-1)",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -56,6 +58,7 @@
     "@typescript-eslint/parser": "3.9.0",
     "angular-cli-ghpages": "^0.6.2",
     "codelyzer": "^6.0.0",
+    "cypress": "^5.2.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-airbnb-typescript": "^10.0.0",

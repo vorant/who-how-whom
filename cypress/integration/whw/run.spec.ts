@@ -5,8 +5,7 @@ context('Actions', () => {
     cy.visit('/');
   });
 
-
-  it('body should contain .mat-typography class', () => {
+  it('body should contain .mat-typography class ', () => {
     cy.get('body').should('have.class', 'mat-typography');
   });
 });

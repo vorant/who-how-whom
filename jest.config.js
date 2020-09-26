@@ -60,6 +60,6 @@ module.exports = {
   //   },
   // },
   verbose: true,
-  roots: ['<rootDir>'],
+  roots: ['<rootDir>/src'],
   modulePaths: ['<rootDir>'],
 };

@@ -18,14 +18,16 @@ install:
 
 jobs:
   include:
-#    - stage: test
-#      script:
-#        - npm run test
-#        - npm run test:coverage
-#        - npm run lint
-    - stage: deploy
+    - stage: unit tests and lint
       script:
-#        - npm run deploy
+      - npm run test
+      - npm run test:coverage
+      - npm run lint
+    - stage: e2e test
+      script:
+      - npm run e2e
+    - stage: build
+      script:
       - npm run prod
 
 deploy:

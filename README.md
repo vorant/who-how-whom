@@ -1,3 +1,5 @@
+https://travis-ci.org/vorant/who-how-whom.svg?branch=master
+
 # Whw
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.

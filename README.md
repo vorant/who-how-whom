@@ -1,4 +1,4 @@
-https://travis-ci.org/vorant/who-how-whom.svg?branch=master
+[![Build Status](https://travis-ci.org/vorant/who-how-whom.svg?branch=master)](https://travis-ci.org/vorant/who-how-whom)
 
 # Whw
 

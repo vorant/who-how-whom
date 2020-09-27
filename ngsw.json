@@ -1,0 +1,80 @@
+{
+  "configVersion": 1,
+  "timestamp": 1601183457717,
+  "index": "/who-how-whom/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/who-how-whom/favicon.ico",
+        "/who-how-whom/index.html",
+        "/who-how-whom/main.bde4a74d5a0b47f50b0e.js",
+        "/who-how-whom/manifest.webmanifest",
+        "/who-how-whom/polyfills.35a5ca1855eb057f016a.js",
+        "/who-how-whom/runtime.acf0dec4155e77772545.js",
+        "/who-how-whom/styles.f413d79e7c9fc7242a58.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/who-how-whom/assets/icons/icon-128x128.png",
+        "/who-how-whom/assets/icons/icon-144x144.png",
+        "/who-how-whom/assets/icons/icon-152x152.png",
+        "/who-how-whom/assets/icons/icon-192x192.png",
+        "/who-how-whom/assets/icons/icon-384x384.png",
+        "/who-how-whom/assets/icons/icon-512x512.png",
+        "/who-how-whom/assets/icons/icon-72x72.png",
+        "/who-how-whom/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/who-how-whom/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/who-how-whom/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/who-how-whom/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/who-how-whom/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/who-how-whom/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/who-how-whom/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/who-how-whom/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/who-how-whom/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/who-how-whom/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/who-how-whom/index.html": "00f088ce4668ff5889cd743eeb8f662903bb5282",
+    "/who-how-whom/main.bde4a74d5a0b47f50b0e.js": "8dded7575ceb57b0d028a29bcffdc50805f204a3",
+    "/who-how-whom/manifest.webmanifest": "5305eec6b20e0d38f71fd7a2cdfcdc5c3372c50f",
+    "/who-how-whom/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
+    "/who-how-whom/runtime.acf0dec4155e77772545.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/who-how-whom/styles.f413d79e7c9fc7242a58.css": "f7b7e3bc5642549f6800a23a347f16f75ae511ea"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

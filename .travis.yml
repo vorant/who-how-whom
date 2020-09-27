@@ -27,6 +27,7 @@ jobs:
       script:
       - npm run e2e
     - stage: build
+      if: branch = master
       script:
       - npm run prod
       deploy:

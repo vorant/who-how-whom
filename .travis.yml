@@ -29,12 +29,11 @@ jobs:
     - stage: build
       script:
       - npm run prod
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist/whw
-  verbose: false
-  on:
-    branch: master
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist/whw
+        verbose: false
+        on:
+          branch: master
